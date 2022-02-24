@@ -1,0 +1,27 @@
+<%= form_with(model: pokedex, local: true) do |form| %>
+  <% if pokedex.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pokedex.errors.count, "error") %> prohibited this pokedex from being saved:</h2>
+
+      <ul>
+      <% pokedex.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :pokedex_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :element %>
+    <%= form.text_field :element, id: :pokedex_element %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
